@@ -1,0 +1,356 @@
+@import "_reset";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,500&display=swap");
+
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+.container {
+    padding: 20px;
+
+    @media (min-width: 576px) {
+        padding: 25px 20px;
+    }
+
+    @media (min-width: 991px) {
+        padding: 20px 60px;
+    }
+}
+.wrapper {
+    display: flex;
+    flex-direction: column;
+
+    & header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        & h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+
+            @media (min-width: 576px) {
+                margin-bottom: 0;
+                padding-top: 3px;
+            }
+
+            @media (min-width: 991px) {
+                font-size: 34px;
+            }
+        }
+
+        & button {
+            background-color: inherit;
+            font-size: 14px;
+            padding: 5px 10px;
+            transition: background-color 0.8s;
+            will-change: background-color;
+            border-radius: 3px;
+
+            &::before {
+                font-family: "Font Awesome 6 Free";
+                font-weight: 700;
+                padding-right: 5px;
+                content: "\f186";
+            }
+            &:hover {
+                background-color: #fafafa;
+                box-shadow: 0 1px 6px grey;
+            }
+
+            @media (min-width: 991px) {
+                font-size: 18px;
+            }
+        }
+
+        @media (min-width: 576px) {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+    }
+
+    & main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+
+        & form {
+            display: flex;
+            flex-direction: column;
+            min-width: 100%;
+            padding-bottom: 20px;
+
+            & div {
+                position: relative;
+
+                & i {
+                    position: absolute;
+                    top: 10px;
+                    left: 7px;
+
+                    @media (min-width: 767px) {
+                        font-size: 18px;
+                        top: 16px;
+                        left: 10px;
+                    }
+                }
+
+                & input {
+                    min-width: 100%;
+                    margin-bottom: 20px;
+                    box-shadow: 0 1px 6px grey;
+                    border-radius: 3px;
+                    font-size: 14px;
+                    padding: 5px;
+                    padding-left: 25px;
+
+                    @media (min-width: 767px) {
+                        min-height: 50px;
+                        padding-left: 35px;
+                    }
+
+                    @media (min-width: 991px) {
+                        font-size: 18px;
+                    }
+                }
+
+                @media (min-width: 576px) {
+                    flex: 0 1 50%;
+                }
+
+                @media (min-width: 767px) {
+                    max-width: 480px;
+                }
+            }
+
+            & select {
+                box-shadow: 0 1px 6px grey;
+                border-radius: 3px;
+                font-size: 14px;
+                padding: 7px;
+
+                @media (min-width: 576px) {
+                    flex: 0 1 50%;
+                    max-width: 200px;
+                    max-height: 32px;
+                }
+
+                @media (min-width: 767px) {
+                    max-width: 300px;
+                    max-height: 50px;
+                }
+
+                @media (min-width: 991px) {
+                    font-size: 18px;
+                }
+            }
+
+            @media (min-width: 576px) {
+                flex-direction: row;
+                justify-content: space-between;
+                padding-bottom: 0;
+            }
+        }
+
+        .content {
+            flex: 0 1 auto;
+            align-self: flex-start;
+            display: grid;
+            position: relative;
+            width: 100%;
+
+            .countryCard {
+                display: flex;
+                flex-direction: column;
+                border-radius: 5px;
+                box-shadow: 0 1px 6px grey;
+                overflow: hidden;
+                min-width: 100%;
+                margin: 5% 0;
+
+                & img {
+                    max-width: 100%;
+                    height: 50%;
+                    object-fit: cover;
+
+                    @media (min-width: 575px) {
+                        flex: 0 0 50%;
+                    }
+                }
+
+                & ul {
+                    padding: 25px;
+
+                    & li {
+                        font-size: 16px;
+                        padding-bottom: 10px;
+                    }
+
+                    & li:first-child {
+                        font-size: 24px;
+                        font-weight: 700;
+                        letter-spacing: 1px;
+                        padding-bottom: 25px;
+                    }
+                }
+            }
+
+            .err {
+                color: red;
+                font-size: 32px;
+                font-weight: 700;
+            }
+
+            .preloader {
+                width: 102%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                z-index: 99;
+                position: absolute;
+                top: -10px;
+                left: -10px;
+                padding-top: 10%;
+
+                .loader {
+                    width: 80px;
+                    height: 80px;
+                    background-image: url("../img/1492.png");
+                }
+            }
+
+            .hide {
+                display: none;
+            }
+            
+            @media (min-width: 575px) {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+                grid-gap: 1rem;
+            }
+        }
+    }
+}
+
+$color-primary: #fff;
+$color-primary--dark: #000;
+$color-primery-main--dark: rgb(75, 75, 75);
+$color-primary-main--light: #fafafa;
+
+@mixin dark-mode {
+    .wrapper {
+        background-color: $color-primary--dark;
+
+        & header {
+            color: $color-primary;
+
+            & button {
+                color: $color-primary;
+                &::before {
+                    content: "\f185";
+                }
+
+                &:hover {
+                    background-color: $color-primery-main--dark;
+                    box-shadow: 0 1px 6px $color-primary;
+                }
+            }
+        }
+        & main {
+            background-color: $color-primery-main--dark;
+
+            & form {
+                & div {
+                    & input {
+                        background-color: $color-primary;
+                        box-shadow: 0 1px 6px $color-primary;
+                    }
+                }
+
+                & select {
+                    box-shadow: 0 1px 6px $color-primary;
+                }
+            }
+
+            .content {
+                .preloader {
+                    background-color: $color-primery-main--dark;
+                }
+                .countryCard {
+                    color: $color-primary;
+                    background-color: $color-primery-main--dark;
+                    box-shadow: 0 1px 6px $color-primary;
+                }
+            }
+        }
+    }
+}
+
+@mixin light-mode {
+    .wrapper {
+        background: $color-primary;
+        color: $color-primary--dark;
+
+        & header {
+            color: $color-primary--dark;
+
+            & button {
+                color: inherit;
+
+                &::before {
+                    content: "\f186";
+                }
+
+                &:hover {
+                    //background-color: $color-primery-main--light;
+                    box-shadow: 0 1px 6px $color-primary--dark;
+                }
+            }
+        }
+
+        & main {
+            background-color: $color-primary-main--light;
+            color: $color-primary--dark;
+
+            & form {
+                & div {
+                    & input {
+                        background-color: $color-primary;
+                        box-shadow: 0 1px 6px $color-primary--dark;
+                    }
+                }
+
+                & select {
+                    box-shadow: 0 1px 6px $color-primary--dark;
+                }
+            }
+
+            .content {
+                .preloader {
+                    background-color: $color-primary-main--light;
+                }
+                .countryCard {
+                    color: $color-primary--dark;
+                    background-color: inherit;
+                    box-shadow: 0 1px 6px $color-primary--dark;
+                }
+            }
+        }
+    }
+}
+
+.dark-mode {
+    @include dark-mode;
+}
+
+.light-mode {
+    @include light-mode;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        @include dark-mode;
+    }
+}
