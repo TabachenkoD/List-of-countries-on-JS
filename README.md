@@ -1,4 +1,4 @@
-# List-of-countries-on-JS
+# List of countries on JS.
 
 This is my tutorial project, whose task was сreate list page of countries with a http request, serch, filter by region, preloader, dark/light mode on JavaScript.  
 With a adaptive and responsive design. 
