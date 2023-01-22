@@ -390,7 +390,6 @@ body {
 .wrapper main .content .countryCard img {
   max-width: 100%;
   height: 50%;
-  height: 50cqh;
   -o-object-fit: cover;
      object-fit: cover;
 }
