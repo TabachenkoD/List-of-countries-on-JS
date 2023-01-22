@@ -383,12 +383,14 @@ body {
           box-shadow: 0 1px 6px grey;
   overflow: hidden;
   min-width: 100%;
+  height: 380px;
   margin: 5% 0;
 }
 
 .wrapper main .content .countryCard img {
   max-width: 100%;
   height: 50%;
+  height: 50cqh;
   -o-object-fit: cover;
      object-fit: cover;
 }
